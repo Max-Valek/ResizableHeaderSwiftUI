@@ -7,20 +7,27 @@
 
 import SwiftUI
 
+/*
+ 
+ View for the resizable header
+ 
+ */
 struct Header: View {
     
+    // current tab
     @Binding var tabIndex: Int
     
+    // used to show the desired header size
     @Binding var showFullHeader: Bool
     
     var body: some View {
         
         VStack(spacing: 25) {
             
+            // show app name and buttons if showFullHeader is true
             if self.showFullHeader {
                 
                 HStack {
-                    
                     Text("AppName")
                         .fontWeight(.bold)
                         .font(.title)
@@ -29,7 +36,7 @@ struct Header: View {
                     Spacer(minLength: 0)
                     
                     Button {
-                        //
+                        // Do something
                     } label: {
                         Image(systemName: "magnifyingglass")
                             .resizable()
@@ -38,7 +45,7 @@ struct Header: View {
                     }
 
                     Button {
-                        //
+                        // Do something
                     } label: {
                         Image(systemName: "list.bullet")
                             .resizable()
@@ -50,16 +57,13 @@ struct Header: View {
             }
             
             HStack {
-                
+                // update current tab and UI when Tab1 is pressed
                 Button {
-                    
                     self.tabIndex = 0
                     
                 } label: {
-                    
                     VStack {
-                        
-                        Text("Chats")
+                        Text("Tab1")
                             .foregroundColor(.white)
                             .fontWeight(self.tabIndex == 0 ? .bold : .none)
                         
@@ -69,15 +73,13 @@ struct Header: View {
                     }
                 }
                 
+                // update current tab and UI when Tab2 is pressed
                 Button {
-                    
                     self.tabIndex = 1
                     
                 } label: {
-                    
                     VStack {
-                        
-                        Text("Status")
+                        Text("Tab2")
                             .foregroundColor(.white)
                             .fontWeight(self.tabIndex == 1 ? .bold : .none)
                         
@@ -87,15 +89,13 @@ struct Header: View {
                     }
                 }
                 
+                // update current tab and UI when Tab3 is pressed
                 Button {
-                    
                     self.tabIndex = 2
                     
                 } label: {
-                    
                     VStack {
-                        
-                        Text("Calls")
+                        Text("Tab3")
                             .foregroundColor(.white)
                             .fontWeight(self.tabIndex == 2 ? .bold : .none)
                         
@@ -109,13 +109,7 @@ struct Header: View {
             .padding(.bottom, 10)
         }
         .padding(.horizontal)
-//        .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 10)
-        .background(Color("Color"))
+        // header-background is a color set in assets
+        .background(Color("header-background"))
     }
 }
-
-//struct Header_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Header(index: .constant(0), show: .constant(true))
-//    }
-//}

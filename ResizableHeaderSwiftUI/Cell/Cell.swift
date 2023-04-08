@@ -7,21 +7,22 @@
 
 import SwiftUI
 
-struct ChatCell: View {
+struct Cell: View {
     
     var body: some View {
         
-        HStack {
+        HStack(spacing: 25) {
             
-            Image("profile1")
+            Image(systemName: "person.circle.fill")
                 .resizable()
-                .frame(width: 55, height: 55)
+                .frame(width: 45, height: 45)
             
             VStack(alignment: .leading, spacing: 10) {
                 
                 Text("User")
+                    .font(.title3)
                 
-                Text("Message")
+                Text("Sample cell for User")
                     .font(.caption)
             }
         }
@@ -31,6 +32,6 @@ struct ChatCell: View {
 
 struct ChatCell_Previews: PreviewProvider {
     static var previews: some View {
-        ChatCell()
+        Cell()
     }
 }

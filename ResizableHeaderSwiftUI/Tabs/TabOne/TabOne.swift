@@ -7,17 +7,25 @@
 
 import SwiftUI
 
-struct Chats: View {
+/*
+ 
+ Simple tab for this template project
+ 
+ */
+struct TabOne: View {
     
+    // for deciding which header configuration to show
     @Binding var showFullHeader: Bool
     
     var body: some View {
         
         List(0...25, id: \.self) { i in
             
+            // toggle showFullHeader based on visibility
+            // of first item in the list
             if i == 0 {
                 
-                ChatCell()
+                Cell()
                     .onAppear {
                         
                         withAnimation {
@@ -32,14 +40,17 @@ struct Chats: View {
                     }
                 
             } else {
-                ChatCell()
+                Cell()
             }
         }
+        // simply for showing the tabs are different
+        .foregroundColor(Color(.black))
+        .listStyle(.plain)
     }
 }
 
 struct Chats_Previews: PreviewProvider {
     static var previews: some View {
-        Chats(showFullHeader: .constant(true))
+        TabOne(showFullHeader: .constant(true))
     }
 }
